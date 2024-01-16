@@ -1,111 +1,131 @@
 <!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votre Restaurant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            background-image: url('https://img.freepik.com/photos-gratuite/vue-dessus-table-pleine-nourriture_23-2149209253.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
-
-        nav {
-            text-align: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: transparent;
-            padding: 1em;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        nav i {
-            margin-right: 5px;
-        }
-
-        section {
-            padding: 2em;
-            text-align: center; /* Centrer le contenu de la section */
-        }
-
-        footer {
-            margin-top: 40px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peter's Example Portfolio Site</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
     <header>
-        <h1>Les plats de chez moi</h1>
-        <p>Une expérience culinaire exceptionnelle</p>
-        <nav>
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="#"><i class="fas fa-book"></i> Menu</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> À propos</a></li>
-                <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      <h1> Mon Portfolio Numérique</h1>
+      <p>
+        Cette section présente une sélection de projets que j'ai réalisés ce
+        semestre.
+      </p>
 
-    <section>
-        <h2>Nos Spécialités</h2>
-        <p>Découvrez notre délicieuse sélection de plats préparés avec passion.</p>
-        <img src="https://africaine-sante.com.tn/wp-content/uploads/2015/10/poulet-1.jpg" alt="Spécialité du restaurant">
-        <br>
-        <span>
-            <p>Poulet Djenkoumé</p>
-        </span>
-        <br>
-        <p>Le poulet djenkoumé, est une spécialité culinaire du Togo faite à base de poulet. Un plat familial traditionnel du Togo, facile à réaliser. La recette originale se fait avec du poulet, d’où le nom « poulet djenkoumé» . Un plat original à table !.</p>
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="#projects">Mon Projects</a></li>
+          <li><a href="#resume">Voir Mon CV</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#about">Moi</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main Content Sections -->
+
+    <!-- Projects Section -->
+    <section id="projects" class="card">
+      <h2>Portfolio de Projets</h2>
+      <p>
+        Découvrez mon univer et exploré mes projets.
+      </p>
+      <div class="flex-me2">
+        <a href="/Morpion.html" class="btn card-link">Morpion</a>
+        <a
+          href="/restaurant.html"
+          rel="noreferrer"
+          target="_blank"
+          class="btn card-link"
+          >Site Pro</a
+        >
+      </div>
+      <!-- Link to your projects section -->
     </section>
 
-    <footer>
-        <p>&copy; 2023 Votre Restaurant</p>
-    </footer>
-</body>
+    <!-- Resume Section -->
+    <section id="resume" class="card">
+      <h2>Curriculum Vitae</h2>
+      <p>
+        explorer le monde de mon parcour academique .
+      </p>
+      <a
+        class="flex-me btn"
+        href="https://www.linkedin.com/in/junior-gabriel-adjiwanou-730261252/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img id="linkedIn" src="LinkedIn_icon.svg" alt="" />
+        <span>LinkedIn</span>
+      </a>
 
+      <!-- Link to your resume section -->
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="card">
+      <h2>À Propos de Moi</h2>
+      <p>decouvrez ma passion et mes centres d'interet.</p>
+      <a href="/about.html" class="btn card-link">Plus Sur Moi</a>
+      <!-- Link to your about me section -->
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="card">
+      <h2>Compétences</h2>
+      <p>
+        Voila quelque un de mes compétences :
+      </p>
+      <ul class="flex-me2">
+        <li class="pills">UI UX designer</li>
+        <li class="pills">Assistant DA </li>
+        <li class="pills">Reseaux sociaux</li>
+        <li class="pills">communication</li>
+        <li class="pills">vendeur</li>
+        <li class="pills">chef cuisto</li>
+        <!-- Add other skills as needed -->
+      </ul>
+      <!-- Additional Skills or Certifications -->
+      <ul>
+        <!-- do this with an anchor element <li>HTML, CSS, JavaScript - Codecademy (Certification)</li> -->
+        </li>
+        <!-- Add other certifications as needed -->
+      </ul>
+      <!-- Link to your GitHub profile or portfolio -->
+      <br />
+      <a
+        href="https://github.com/Peterturn"
+        rel="noreferrer"
+        target="_blank"
+        class="card-link btn"
+      >
+        GitHub
+      </a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>
+        Merci d'avoir fait un petit tour dans mon univers numérique
+         ! Si des questions surviennent en explorant ma page, 
+         n'hésitez pas à me faire signe sur.
+      </p>
+    </footer>
+    <script>
+      function getRandomColor() {
+        const colors = ["#797ef6", "#4adede", "#1aa7ec", "#e63b60", "#ffe45c"];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      window.onload = function () {
+        const pills = document.querySelectorAll(".pills");
+        pills.forEach(function (pill) {
+          pill.style.backgroundColor = getRandomColor();
+        });
+      };
+    </script>
+  </body>
 </html>
