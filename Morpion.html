@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       height: 100vh;
       margin: 0;
+      background: linear-gradient(to bottom, #4a148c, #1976d2); /* Dégradé de violet à bleu */
+      color: #ffffff; /* Texte en blanc */
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
     }
 
     #header {
@@ -30,11 +37,12 @@
       font-size: 24px;
       text-align: center;
       cursor: pointer;
-      background-color: #f0f0f0;
+      background-color: #673ab7; /* Violet */
+      color: #ffffff; /* Texte en blanc */
     }
 
     .cell:hover {
-      background-color: #ddd;
+      background-color: #3f51b5; /* Violet plus foncé au survol */
     }
 
     #reset-button {
@@ -42,16 +50,19 @@
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
+      background-color: #2196f3; /* Bleu */
+      color: #ffffff; /* Texte en blanc */
+      border: none;
+      border-radius: 5px;
     }
   </style>
-  <title>Morpion</title>
+  <title>Morpion Futuriste</title>
 </head>
 <body>
-<h1>Morpion</h1>
-<div id="header">Tour de Joueur 1 (X)</div>
-<div id="board"></div>
-<button id="reset-button" onclick="resetGame()">Réinitialiser le Jeu</button>
-
+  <h1>Morpion Futuriste</h1>
+  <div id="header">Tour de Joueur 1 (X)</div>
+  <div id="board"></div>
+  <button id="reset-button" onclick="resetGame()">Réinitialiser le Jeu</button>
 <script>
   // Code JavaScript pour le jeu de Morpion
 
