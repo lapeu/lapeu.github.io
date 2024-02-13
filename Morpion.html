@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,10 +14,12 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: linear-gradient(to bottom, #4a148c, #1976d2); /* Dégradé de violet à bleu */
-      color: #ffffff; /* Texte en blanc */
+      background: linear-gradient(to bottom, #4a148c, #1976d2);
+      /* Dégradé de violet à bleu */
+      color: #ffffff;
+      /* Texte en blanc */
     }
-    
+
     h1 {
       font-size: 32px;
       margin-bottom: 20px;
@@ -37,12 +42,15 @@
       font-size: 24px;
       text-align: center;
       cursor: pointer;
-      background-color: #673ab7; /* Violet */
-      color: #ffffff; /* Texte en blanc */
+      background-color: #673ab7;
+      /* Violet */
+      color: #ffffff;
+      /* Texte en blanc */
     }
 
     .cell:hover {
-      background-color: #3f51b5; /* Violet plus foncé au survol */
+      background-color: #3f51b5;
+      /* Violet plus foncé au survol */
     }
 
     #reset-button {
@@ -50,95 +58,124 @@
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #2196f3; /* Bleu */
-      color: #ffffff; /* Texte en blanc */
+      background-color: #2196f3;
+      /* Bleu */
+      color: #ffffff;
+      /* Texte en blanc */
+      border: none;
+      border-radius: 5px;
+    }
+
+    #home-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #116cff;
+      /* Vert */
+      color: #ffffff;
+      /* Texte en blanc */
       border: none;
       border-radius: 5px;
     }
   </style>
   <title>Morpion Futuriste</title>
 </head>
+
 <body>
   <h1>Morpion Futuriste</h1>
   <div id="header">Tour de Joueur 1 (X)</div>
   <div id="board"></div>
   <button id="reset-button" onclick="resetGame()">Réinitialiser le Jeu</button>
-<script>
-  // Code JavaScript pour le jeu de Morpion
+  <a href="/index.html">
+    <span class="material-symbols-outlined home-btn">
+      home
+    </span>
+  </a>
 
-  const header = document.getElementById('header');
-  const board = document.getElementById('board');
-  const cells = [];
-  let currentPlayer = 'X';
-  let gameActive = true;
 
-  // Créer le tableau de Morpion
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      cell.dataset.row = i;
-      cell.dataset.col = j;
-      cell.addEventListener('click', handleCellClick);
-      board.appendChild(cell);
-      cells.push(cell);
+  <script>
+    // Code JavaScript pour le jeu de Morpion
+
+    const header = document.getElementById('header');
+    const board = document.getElementById('board');
+    const cells = [];
+    let currentPlayer = 'X';
+    let gameActive = true;
+
+    // Créer le tableau de Morpion
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.dataset.row = i;
+        cell.dataset.col = j;
+        cell.addEventListener('click', handleCellClick);
+        board.appendChild(cell);
+        cells.push(cell);
+      }
     }
-  }
 
-  // Créer le bouton de réinitialisation
-  const resetButton = document.getElementById('reset-button');
+    // Créer le bouton de réinitialisation
+    const resetButton = document.getElementById('reset-button');
 
-  function handleCellClick() {
-    if (!gameActive || this.textContent !== '') return;
+    function handleCellClick() {
+      if (!gameActive || this.textContent !== '') return;
 
-    this.textContent = currentPlayer;
-    if (checkWinner()) {
-      alert(`Le joueur ${currentPlayer} gagne !`);
-      gameActive = false;
-    } else if (isBoardFull()) {
-      alert('C\'est une égalité !');
-      gameActive = false;
-    } else {
-      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      this.textContent = currentPlayer;
+      if (checkWinner()) {
+        alert(`Le joueur ${currentPlayer} gagne !`);
+        gameActive = false;
+      } else if (isBoardFull()) {
+        alert('C\'est une égalité !');
+        gameActive = false;
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        updateHeader();
+      }
+    }
+
+    function checkWinner() {
+      const winningCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Lignes
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colonnes
+        [0, 4, 8], [2, 4, 6]             // Diagonales
+      ];
+
+      return winningCombinations.some(combination => {
+        const [a, b, c] = combination;
+        return cells[a].textContent !== '' &&
+          cells[a].textContent === cells[b].textContent &&
+          cells[a].textContent === cells[c].textContent;
+      });
+    }
+
+    function isBoardFull() {
+      return cells.every(cell => cell.textContent !== '');
+    }
+
+    function resetGame() {
+      // Effacer le tableau
+      cells.forEach(cell => {
+        cell.textContent = '';
+      });
+
+      // Réinitialiser l'état du jeu
+      currentPlayer = 'X';
+      gameActive = true;
       updateHeader();
     }
-  }
 
-  function checkWinner() {
-    const winningCombinations = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Lignes
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colonnes
-      [0, 4, 8], [2, 4, 6]             // Diagonales
-    ];
+    function updateHeader() {
+      header.textContent = `Tour de Joueur ${currentPlayer === 'X' ? '1 (X)' : '2 (O)'}`;
+    }
 
-    return winningCombinations.some(combination => {
-      const [a, b, c] = combination;
-      return cells[a].textContent !== '' &&
-             cells[a].textContent === cells[b].textContent &&
-             cells[a].textContent === cells[c].textContent;
-    });
-  }
-
-  function isBoardFull() {
-    return cells.every(cell => cell.textContent !== '');
-  }
-
-  function resetGame() {
-    // Effacer le tableau
-    cells.forEach(cell => {
-      cell.textContent = '';
-    });
-
-    // Réinitialiser l'état du jeu
-    currentPlayer = 'X';
-    gameActive = true;
-    updateHeader();
-  }
-
-  function updateHeader() {
-    header.textContent = `Tour de Joueur ${currentPlayer === 'X' ? '1 (X)' : '2 (O)'}`;
-  }
-</script>
+    function goHome() {
+      // Redirection vers la page d'accueil
+      window.location.href = 'index.html'; // Remplacez 'index.html' par le chemin de votre page d'accueil
+    }
+  </script>
 
 </body>
+
 </html>

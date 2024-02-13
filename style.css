@@ -13,7 +13,7 @@ header {
     text-align: center;
     padding: 10px;
     /* add a background color with a gradient linear-gradient(to right, #d7e9f7, #000000) and an image behind the gradient */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.401), rgb(0, 0, 0)), url(Many-red-roses-flowers-romantic_2880x1800.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.401), rgb(0, 0, 0)), url(https://i.pinimg.com/564x/d6/9b/fb/d69bfb0edcfd6cfe3e618a075c52c3ff.jpg);
     background-position: center;
     background-size: cover;
     color: #fff; /* Adjust as needed */
@@ -53,7 +53,7 @@ section a {
 /* Hover effect for links */
 section a:hover,
 nav a:hover {
-    background-color: #4a0707; /* Adjust hover background color */
+    background-color: #06135a; /* Adjust hover background color */
     color: #fff; /* Adjust hover text color */
 }
 
